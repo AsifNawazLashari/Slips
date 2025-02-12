@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roll Number Slip Generator</title>
+    <link rel="stylesheet" href="static/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- SweetAlert -->
+</head>
+<body>
+    <div class="container">
+        <h2>Roll Number Slip Generator</h2>
+        <form id="slipForm" enctype="multipart/form-data">
+            <label for="grNo">GR No:</label>
+            <input type="text" id="grNo" name="grNo" required>
+
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="fatherName">Father Name:</label>
+            <input type="text" id="fatherName" name="fatherName" required>
+
+            <label for="caste">Caste:</label>
+            <input type="text" id="caste" name="caste" required>
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+
+            <label for="rollNumber">Roll Number:</label>
+            <input type="text" id="rollNumber" name="rollNumber" required>
+
+            <label for="class">Class:</label>
+            <select id="class" name="class" required>
+                <option value="6">Class 6</option>
+                <option value="7">Class 7</option>
+                <option value="8">Class 8</option>
+            </select>
+
+            <label for="profilePicture">Profile Picture:</label>
+            <input type="file" id="profilePicture" name="profilePicture" accept="image/*" required>
+
+            <button type="submit">Generate Roll Number Slip</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("slipForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var formData = new FormData(this);
+
+            fetch("/generate_slip", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Roll Number Slip Generated Successfully!',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                });
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'An error occurred while generating the slip.',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

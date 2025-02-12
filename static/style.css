@@ -1,0 +1,104 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif; /* Modern font similar to Android */
+    margin: 0;
+    padding: 0;
+    background-color: #e6f2e6; /* Light Tea Green Background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Fixed layout */
+}
+
+/* Container (App Box) */
+.container {
+    width: 90%;
+    max-width: 400px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: fixed;
+}
+
+/* Title */
+h2 {
+    color: #2e7d32; /* Dark Green */
+    font-size: 22px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* Labels */
+label {
+    font-size: 14px;
+    color: #333;
+    font-weight: 500;
+    display: block;
+    text-align: left;
+    margin-top: 10px;
+}
+
+/* Inputs & Select */
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 2px solid #a5d6a7;
+    border-radius: 8px;
+    outline: none;
+    background-color: #f8fff8;
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+
+input:focus, select:focus {
+    border-color: #2e7d32; /* Dark Green */
+    background-color: #e8f5e9;
+}
+
+/* File Input */
+input[type="file"] {
+    padding: 8px;
+    border: none;
+    background-color: #e8f5e9;
+}
+
+/* Button */
+button {
+    width: 100%;
+    background-color: #4caf50; /* Green Tea */
+    color: white;
+    border: none;
+    padding: 14px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background-color: #388e3c;
+}
+
+/* Success Message */
+#successMessage {
+    margin-top: 15px;
+    padding: 12px;
+    background-color: #c8e6c9;
+    color: #1b5e20;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    display: none;
+}
+
+/* Responsive */
+@media screen and (max-width: 480px) {
+    .container {
+        width: 95%;
+    }
+}
